@@ -1,6 +1,6 @@
 package org.delivery.api.config.web;
 
-import lombok.RequiredArgsConstructor;
+/*import lombok.RequiredArgsConstructor;
 import org.delivery.api.interceptor.AuthorizationInterceptor;
 import org.delivery.api.resolver.UserSessionResolver;
 import org.springframework.context.annotation.Configuration;
@@ -41,4 +41,4 @@ public class WebConfig implements WebMvcConfigurer {
     public void addArgumentResolvers(List<HandlerMethodArgumentResolver> resolvers) {
         resolvers.add(userSessionResolver);
     }
-}
+}*/
