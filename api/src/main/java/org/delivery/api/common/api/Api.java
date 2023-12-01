@@ -1,11 +1,10 @@
+/*
 package org.delivery.api.common.api;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.delivery.api.common.error.ErrorCode;
-import org.delivery.api.common.error.ErrorCodeIfs;
+import org.delivery.common.error.ErrorCodeIfs;
 
 import javax.validation.Valid;
 
@@ -39,11 +38,14 @@ public class Api<T> {
         return api;
     }
 
-//    public static <T> Api<T> ERROR(T data, ErrorCodeIfs errorCodeIfs){
-//        var api = new Api<T>();
-//        api.result = Result.ERROR(errorCodeIfs);
-//        return api;
-//    }
+    */
+/*public static <T> Api<T> ERROR(T data, ErrorCodeIfs errorCodeIfs){
+        var api = new Api<T>();
+        api.result = Result.ERROR(errorCodeIfs);
+        return api;
+    }*//*
+
+
 
     public static Api<Object> ERROR(ErrorCodeIfs errorCodeIfs, Throwable throwable){
         var api = new Api<Object>();
@@ -57,3 +59,4 @@ public class Api<T> {
         return api;
     }
 }
+*/
