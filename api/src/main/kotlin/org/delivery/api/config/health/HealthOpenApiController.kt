@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping
+@RequestMapping("/open-api")
 class HealthOpenApiController {
 
     private val logger: Logger = LoggerFactory.getLogger(this.javaClass)
