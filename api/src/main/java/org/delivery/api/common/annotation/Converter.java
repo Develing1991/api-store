@@ -1,4 +1,5 @@
-package org.delivery.api.common.annotation;
+/*
+package org.delivery.common.annotation;
 
 import org.springframework.core.annotation.AliasFor;
 import org.springframework.stereotype.Service;
@@ -15,3 +16,4 @@ public @interface Converter { // 데이터를 변환해주는 표현을 하는 �
     @AliasFor(annotation = Service.class)
     String value() default "";
 }
+*/
