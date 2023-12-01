@@ -1,3 +1,4 @@
+/*
 package org.delivery.common.exception;
 
 
@@ -7,3 +8,4 @@ public interface ApiExceptionIfs {
     ErrorCodeIfs getErrorCodeIfs();
     String getErrorMessage();
 }
+*/
