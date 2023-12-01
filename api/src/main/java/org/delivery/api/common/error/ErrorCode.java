@@ -5,7 +5,7 @@ import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
 
-@AllArgsConstructor
+/*@AllArgsConstructor
 @Getter
 public enum ErrorCode implements ErrorCodeIfs{
 
@@ -20,4 +20,4 @@ public enum ErrorCode implements ErrorCodeIfs{
     private final Integer httpStatusCode; // http status
     private final Integer errorCode; // internal(내부)코드
     private final String message;
-}
+}*/
