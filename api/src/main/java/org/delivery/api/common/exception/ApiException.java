@@ -1,8 +1,10 @@
-package org.delivery.api.common.exception;
+//package org.delivery.api.common.exception;
 
+/*
 
 import lombok.Getter;
-import org.delivery.api.common.error.ErrorCodeIfs;
+import org.delivery.common.error.ErrorCodeIfs;
+
 
 @Getter
 public class ApiException extends RuntimeException implements ApiExceptionIfs{
@@ -33,3 +35,4 @@ public class ApiException extends RuntimeException implements ApiExceptionIfs{
         this.errorMessage = errorDescription;
     }
 }
+*/
