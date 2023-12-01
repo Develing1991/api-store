@@ -10,6 +10,8 @@ data class Result(
 ) {
     // like static -> companion object
     companion object {
+        // java에서 Result.Companion.OK로 사용해야 하니
+        @JvmStatic // java에서 사용할 때 static메서드 처럼 사용하게 하는 어노테이션
         fun OK():Result{
             return Result(
                 resultCode = ErrorCode.OK.getErrorCode(),
@@ -18,6 +20,7 @@ data class Result(
             )
         }
 
+        @JvmStatic
         fun ERROR(errorCodeIfs: ErrorCodeIfs):Result{
             return Result(
                 resultCode = errorCodeIfs.getErrorCode(),
@@ -26,6 +29,7 @@ data class Result(
             )
         }
 
+        @JvmStatic
         fun ERROR(errorCodeIfs: ErrorCodeIfs, throwable: Throwable):Result{
             return Result(
                 resultCode = errorCodeIfs.getErrorCode(),
@@ -34,6 +38,7 @@ data class Result(
             )
         }
 
+        @JvmStatic
         fun ERROR(errorCodeIfs: ErrorCodeIfs, description:String):Result{
             return Result(
                 resultCode = errorCodeIfs.getErrorCode(),
