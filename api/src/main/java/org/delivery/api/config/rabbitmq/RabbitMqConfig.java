@@ -1,6 +1,7 @@
 package org.delivery.api.config.rabbitmq;
 
 
+/*
 // 경로 주의
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.support.converter.MessageConverter;
@@ -64,3 +65,4 @@ public class RabbitMqConfig {
     }
 
 }
+*/
