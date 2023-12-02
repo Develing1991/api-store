@@ -8,6 +8,7 @@ import org.delivery.api.domain.store.controller.model.StoreResponse;
 import org.delivery.api.domain.storemenu.controller.model.StoreMenuResponse;
 import java.util.List;
 
+/*
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,3 +18,4 @@ public class UserOrderDetailResponse {
     private StoreResponse storeResponse;
     private List<StoreMenuResponse> storeMenuResponseList;
 }
+*/
