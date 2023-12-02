@@ -1,5 +1,6 @@
 package org.delivery.api.domain.userorder.controller.model;
 
+/*
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -23,3 +24,4 @@ public class UserOrderResponse {
     private LocalDateTime deliveryStartedAt;
     private LocalDateTime receivedAt;
 }
+*/
