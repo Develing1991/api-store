@@ -1,12 +1,11 @@
 package org.delivery.api.domain.storemenu.service;
 
 import lombok.RequiredArgsConstructor;
-import org.delivery.api.common.api.Api;
 import org.delivery.api.common.error.ErrorCode;
 import org.delivery.api.common.exception.ApiException;
 import org.delivery.db.storemenu.StoreMenuEntity;
-import org.delivery.db.user.StoreMenuRepository;
-import org.delivery.db.user.enums.StoreMenuStatus;
+import org.delivery.db.storemenu.StoreMenuRepository;
+import org.delivery.db.storemenu.enums.StoreMenuStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -6,9 +6,7 @@ import org.delivery.api.common.exception.ApiException;
 import org.delivery.api.domain.storemenu.controller.model.StoreMenuRegisterRequest;
 import org.delivery.api.domain.storemenu.controller.model.StoreMenuResponse;
 import org.delivery.db.storemenu.StoreMenuEntity;
-import org.delivery.db.user.enums.StoreMenuStatus;
 
-import java.math.BigDecimal;
 import java.util.Optional;
 
 @Converter

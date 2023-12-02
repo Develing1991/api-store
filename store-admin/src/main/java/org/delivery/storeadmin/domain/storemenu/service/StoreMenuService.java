@@ -2,8 +2,8 @@ package org.delivery.storeadmin.domain.storemenu.service;
 
 import lombok.RequiredArgsConstructor;
 import org.delivery.db.storemenu.StoreMenuEntity;
-import org.delivery.db.user.StoreMenuRepository;
-import org.delivery.db.user.enums.StoreMenuStatus;
+import org.delivery.db.storemenu.StoreMenuRepository;
+import org.delivery.db.storemenu.enums.StoreMenuStatus;
 import org.springframework.stereotype.Service;
 
 @Service
