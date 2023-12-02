@@ -3,7 +3,7 @@ package org.delivery.db.userorder
 import org.delivery.db.userorder.enums.UserOrderStatus
 import org.springframework.data.jpa.repository.JpaRepository
 
-interface UserOrderRepository : JpaRepository<UserOrderEntity?, Long?> {
+interface UserOrderRepository : JpaRepository<UserOrderEntity, Long> {
     // 특정 유저의 특정 주문
     // select * from user_order where id = ? and status = ? and user_id = ?;
     //Optional<UserOrderEntity> findAllByIdAndStatusAndUserId(Long id, UserOrderStatus status, Long userId);
