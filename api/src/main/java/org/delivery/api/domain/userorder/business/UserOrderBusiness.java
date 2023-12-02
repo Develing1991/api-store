@@ -1,3 +1,4 @@
+/*
 package org.delivery.api.domain.userorder.business;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -88,7 +89,8 @@ public class UserOrderBusiness {
         var userOrderDetailResponseList =
                 userOrderEntityList.stream()
                         .map(userOrderEntity -> {
-                            /*
+                            */
+/*
                             // JPA ENTITY 연관 관계 설정 시 서로를 참조하다 보니 생기는 순환참조 테스트
                             log.info("사용자의 주문 정보: {}", userOrderEntity);
 
@@ -99,12 +101,15 @@ public class UserOrderBusiness {
                                 log.error("", e);
                                 throw new RuntimeException(e);
                             }
-                            */
+                            *//*
 
-                            /* 기존엔 연관관계 맵핑이 없어 일일히 다 쿼리를 날려 줬다
+
+                            */
+/* 기존엔 연관관계 맵핑이 없어 일일히 다 쿼리를 날려 줬다
                              jpa로 연관관계를 설정해 두면 알아서 해당 연관 객체의 쿼리를 만들어주니 객체에서 찾으면 됨
                              대신 내가 생각 하고 있는 쿼리가 맞는 지 잘 확인 해야함.
-                             또한 양방향 맵핑 일때와 단방향 맵핑일 때를 잘 구분 해서 리소스를 줄이자..*/
+                             또한 양방향 맵핑 일때와 단방향 맵핑일 때를 잘 구분 해서 리소스를 줄이자..*//*
+
 
                             // 사용자가 주문한 메뉴
                             //var userOrderMenuEntityList = userOrderMenuService.getUserOrderMenu(userOrderEntity.getId());
@@ -113,20 +118,24 @@ public class UserOrderBusiness {
                                     .filter(userOrderMenuEntity -> userOrderMenuEntity.getStatus().equals(UserOrderMenuStatus.UNREGISTERED))
                                     .collect(Collectors.toList());
 
-                            /*
+                            */
+/*
                             var storeMenuEntityList = userOrderMenuEntityList.stream().map(uom -> {
                                 var storeMenuEntity = storeMenuService.getStoreMenuWithThrow(uom.getStoreMenu().getId());
                                 return storeMenuEntity;
                             }).collect(Collectors.toList());
-                            */
+                            *//*
+
                             var storeMenuEntityList = userOrderMenuEntityList.stream().map(uom -> uom.getStoreMenu())
                                     .collect(Collectors.toList());
 
                             // 사용자가 주문한 스토어 Todo 리팩토링 필요
-                            /*
+                            */
+/*
                             var storeEntity = storeService.getStoreWithThrow(storeMenuEntityList
                                                           .stream().findFirst().get().getStore().getId());
-                            */
+                            *//*
+
 
 
                             var storeEntity = userOrderEntity.getStore();
@@ -155,20 +164,24 @@ public class UserOrderBusiness {
                             // var userOrderMenuEntityList = userOrderMenuService.getUserOrderMenu(it.getId());
                             var userOrderMenuEntityList = userOrderEntity.getUserOrderMenuList();
 
-                            /*
+                            */
+/*
                             var storeMenuEntityList = userOrderMenuEntityList.stream().map(uom -> {
                                 var storeMenuEntity = storeMenuService.getStoreMenuWithThrow(uom.getStoreMenu().getId());
                                 return storeMenuEntity;
                             }).collect(Collectors.toList());
-                            */
+                            *//*
+
                             var storeMenuEntityList = userOrderMenuEntityList.stream().map(uom -> uom.getStoreMenu())
                                     .collect(Collectors.toList());
 
                             // 사용자가 주문한 스토어 Todo 리팩토링 필요
-                            /*
+                            */
+/*
                             var storeEntity = storeService.getStoreWithThrow(storeMenuEntityList
                                     .stream().findFirst().get().getStore().getId());
-                            */
+                            *//*
+
 
                             var storeEntity = userOrderEntity.getStore();
 
@@ -195,20 +208,24 @@ public class UserOrderBusiness {
                 .stream()
                 .filter(userOrderMenuEntity -> userOrderMenuEntity.getStatus().equals(UserOrderMenuStatus.REGISTERED))
                 .collect(Collectors.toList());
-        /*
+        */
+/*
         var storeMenuEntityList = userOrderMenuEntityList.stream().map(uom -> {
             var storeMenuEntity = storeMenuService.getStoreMenuWithThrow(uom.getStoreMenu().getId());
             return storeMenuEntity;
         }).collect(Collectors.toList());
-        */
+        *//*
+
         var storeMenuEntityList = userOrderMenuEntityList.stream().map(uom -> uom.getStoreMenu())
                 .collect(Collectors.toList());
 
         // 사용자가 주문한 스토어 Todo 리팩토링 필요
-        /*
+        */
+/*
         var storeEntity = storeService.getStoreWithThrow(storeMenuEntityList
                 .stream().findFirst().get().getStore().getId());
-        */
+        *//*
+
         var storeEntity = userOrderEntity.getStore();
 
         return  UserOrderDetailResponse.builder()
@@ -224,3 +241,4 @@ public class UserOrderBusiness {
     }
 
 }
+*/
