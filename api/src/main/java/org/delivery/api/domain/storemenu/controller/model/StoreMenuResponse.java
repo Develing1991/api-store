@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.delivery.db.user.enums.StoreMenuStatus;
+import org.delivery.db.storemenu.enums.StoreMenuStatus;
 
 import java.math.BigDecimal;
 

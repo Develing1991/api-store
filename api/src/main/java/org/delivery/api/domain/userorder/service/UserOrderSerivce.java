@@ -1,8 +1,8 @@
 package org.delivery.api.domain.userorder.service;
 
 import lombok.RequiredArgsConstructor;
-import org.delivery.api.common.error.ErrorCode;
-import org.delivery.api.common.exception.ApiException;
+import org.delivery.common.error.ErrorCode;
+import org.delivery.common.exception.ApiException;
 import org.delivery.db.userorder.UserOrderEntity;
 import org.delivery.db.userorder.UserOrderRepository;
 import org.delivery.db.userorder.enums.UserOrderStatus;
@@ -21,8 +21,8 @@ public class UserOrderSerivce {
 
     // 특정 주문
     public UserOrderEntity getUserOrderWithThrow(Long id, Long userId){
-        return  userOrderRepository
-                .findByIdAndStatusAndUserId(id, UserOrderStatus.ORDER, userId)
+        return  Optional.ofNullable(userOrderRepository
+                        .findByIdAndStatusAndUserId(id, UserOrderStatus.ORDER, userId))
                 .orElseThrow(()-> new ApiException(ErrorCode.NULL_POINT));
     }
 

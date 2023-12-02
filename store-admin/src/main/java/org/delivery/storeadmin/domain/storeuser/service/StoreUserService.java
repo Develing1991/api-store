@@ -1,6 +1,8 @@
 package org.delivery.storeadmin.domain.storeuser.service;
 
 import lombok.RequiredArgsConstructor;
+import org.delivery.common.error.ErrorCode;
+import org.delivery.common.exception.ApiException;
 import org.delivery.db.storeuser.StoreUserEntity;
 import org.delivery.db.storeuser.StoreUserRepository;
 import org.delivery.db.storeuser.enums.StoreUserStatus;
@@ -28,6 +30,6 @@ public class StoreUserService {
     }
 
     public Optional<StoreUserEntity> getStoreRegisteredUser(String email){
-        return storeUserRepository.findFirstByEmailAndStatusOrderByIdDesc(email, StoreUserStatus.REGISTERED);
+        return Optional.ofNullable(storeUserRepository.findFirstByEmailAndStatusOrderByIdDesc(email, StoreUserStatus.REGISTERED));
     }
 }
