@@ -2,6 +2,7 @@ package org.delivery.storeadmin.domain.userorder.business;
 
 import lombok.RequiredArgsConstructor;
 import org.delivery.common.message.model.UserOrderMessage;
+import org.delivery.db.userordermenu.enums.UserOrderMenuStatus;
 import org.delivery.storeadmin.common.annotation.Business;
 import org.delivery.storeadmin.domain.sse.connection.SseConnectionPool;
 import org.delivery.storeadmin.domain.storemenu.converter.StoreMenuConverter;
@@ -43,16 +44,22 @@ public class UserOrderBusiness {
 
         // response - List<store_menu>
         // user order menu (중간 테이블) -> 해당 주문 id로 user_order_menu 그냥 다 찾아 와서
-        var userOrderMenuList = userOrderMenuService.getUserOderMenuList(userOrderEntity.getId());
+        // var userOrderMenuList = userOrderMenuService.getUserOderMenuList(userOrderEntity.getId());
+        var userOrderMenuList = userOrderEntity.getUserOrderMenuList()
+                .stream()
+                .filter(userOrderMenuEntity -> userOrderMenuEntity.getStatus().equals(UserOrderMenuStatus.REGISTERED))
+                .collect(Collectors.toList());
+
         var storeMenuResponseList = userOrderMenuList.stream()
                 .map(userOrderMenuEntity ->{
-                    // userOrderMenu 있는 storeMenuId들로 다시 storeMenu들 다 찾아와서
-                    return storeMenuService.getStoreMenuWithThrow(userOrderMenuEntity.getStoreMenuId());
+                    // userOrderMenu 있는 storeMenuId들로 다시 storeMenu들 다 찾아와서 - 삭제
+                    /*return storeMenuService.getStoreMenuWithThrow(userOrderMenuEntity.getStoreMenu().getId());*/
+                    return storeMenuConverter.toResponse(userOrderMenuEntity.getStoreMenu());
                 })
-                .map(storeMenuEntity -> {
+                /*.map(storeMenuEntity -> {
                     // storeMenu들을 Response로 변경
                     return storeMenuConverter.toResponse(storeMenuEntity);
-                })
+                })*/
                 .collect(Collectors.toList());
 
 
@@ -65,7 +72,7 @@ public class UserOrderBusiness {
 
         // store_user (가맹점 점주 사용자) 에게 push
         // storeId로 할거면 UserSession의 storeId를 uniqueKey로 사용해야 됨
-//        var userConnection = sseConnectionPool.getSession(userOrderEntity.getStoreId().toString());
+//        var userConnection = sseConnectionPool.getSession(userOrderEntity.getStoreMenu().getId().toString());
         var userConnection = sseConnectionPool.getSession(userOrderEntity.getUserId().toString());
         userConnection.sendMessage(pushResponse);
     }
