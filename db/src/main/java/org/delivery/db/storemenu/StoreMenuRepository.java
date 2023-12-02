@@ -1,7 +1,6 @@
-package org.delivery.db.user;
+package org.delivery.db.storemenu;
 
-import org.delivery.db.storemenu.StoreMenuEntity;
-import org.delivery.db.user.enums.StoreMenuStatus;
+import org.delivery.db.storemenu.enums.StoreMenuStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
