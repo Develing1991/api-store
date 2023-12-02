@@ -1,4 +1,5 @@
 package org.delivery.db.user;
+/*
 
 import org.delivery.db.user.enums.UserStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -14,3 +15,4 @@ public interface UserRepository extends JpaRepository<UserEntity, Long> {
     Optional<UserEntity>findFirstByEmailAndPasswordAndStatusOrderByIdDesc(String email, String password, UserStatus status);
     // 얼티밋 버전은 쿼리 메소드 힌트도 줌
 }
+*/
