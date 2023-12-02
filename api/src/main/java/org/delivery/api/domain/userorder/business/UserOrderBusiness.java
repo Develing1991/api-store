@@ -1,6 +1,10 @@
 package org.delivery.api.domain.userorder.business;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.delivery.common.annotation.Business;
 import org.delivery.common.api.Api;
 import org.delivery.api.domain.store.converter.StoreConverter;
@@ -22,6 +26,7 @@ import org.delivery.db.userorder.UserOrderEntity;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Business
 @RequiredArgsConstructor
 public class UserOrderBusiness {
@@ -35,6 +40,7 @@ public class UserOrderBusiness {
     private final UserOrderMenuConverter userOrderMenuConverter;
     private final UserOrderMenuService userOrderMenuService;
     private final UserOrderProducer userOrderProducer; // ################### 추가 ######################
+    private final ObjectMapper objectMapper;
 
     // 1. 사용자, 메뉴 아이디 리스트 (한 주문에 상품은 여러개 주문 가능하니까)
     // 2. userOrder 생성 (주문)
@@ -74,10 +80,24 @@ public class UserOrderBusiness {
 
     public List<UserOrderDetailResponse> current(User user) {
         var userOrderEntityList = userOrderSerivce.current(user.getId());
+
         // 주문 1건씩 처리
         var userOrderDetailResponseList =
                 userOrderEntityList.stream()
                         .map(it -> {
+                            /*
+                            // JPA ENTITY 연관 관계 설정 시 서로를 참조하다 보니 생기는 순환참조 테스트
+                            log.info("사용자의 주문 정보: {}", it);
+
+                            try {
+                                var jsonString = objectMapper.writeValueAsString(it);
+                                log.info("json String: {}", jsonString);
+                            } catch (JsonProcessingException e) {
+                                log.error("", e);
+                                throw new RuntimeException(e);
+                            }
+                            */
+
                             // 사용자가 주문한 메뉴
                             var userOrderMenuEntityList = userOrderMenuService.getUserOrderMenu(it.getId());
                             var storeMenuEntityList = userOrderMenuEntityList.stream().map(uom -> {
