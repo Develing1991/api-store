@@ -87,7 +87,7 @@ public class UserOrderBusiness {
 
                             // 사용자가 주문한 스토어 Todo 리팩토링 필요
                             var storeEntity = storeService.getStoreWithThrow(storeMenuEntityList
-                                                          .stream().findFirst().get().getStoreId());
+                                                          .stream().findFirst().get().getStore().getId());
 
                             return  UserOrderDetailResponse.builder()
                                     .userOrderResponse(userOrderConverter.toResponse(it))
@@ -118,7 +118,7 @@ public class UserOrderBusiness {
 
                             // 사용자가 주문한 스토어 Todo 리팩토링 필요
                             var storeEntity = storeService.getStoreWithThrow(storeMenuEntityList
-                                    .stream().findFirst().get().getStoreId());
+                                    .stream().findFirst().get().getStore().getId());
 
                             return  UserOrderDetailResponse.builder()
                                     .userOrderResponse(userOrderConverter.toResponse(it))
@@ -146,7 +146,7 @@ public class UserOrderBusiness {
 
         // 사용자가 주문한 스토어 Todo 리팩토링 필요
         var storeEntity = storeService.getStoreWithThrow(storeMenuEntityList
-                .stream().findFirst().get().getStoreId());
+                .stream().findFirst().get().getStore().getId());
 
         return  UserOrderDetailResponse.builder()
                 .userOrderResponse(userOrderConverter.toResponse(userOrderEntity))
