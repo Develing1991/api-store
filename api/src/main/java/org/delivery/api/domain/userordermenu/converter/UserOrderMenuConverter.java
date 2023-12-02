@@ -8,10 +8,14 @@ import org.delivery.db.userordermenu.UserOrderMenuEntity;
 @Converter
 public class UserOrderMenuConverter {
 //    public UserOrderMenuEntity toEntity(UserOrderEntity userOrderEntity, StoreMenuEntity storeMenuEntity){
-    public UserOrderMenuEntity toEntity(Long user_order_id, Long store_menu_id){
+    public UserOrderMenuEntity toEntity(
+            // Long user_order_id,
+            UserOrderEntity userOrderEntity,
+            StoreMenuEntity storeMenuEntity){
         return UserOrderMenuEntity.builder()
-                .userOrderId(user_order_id)
-                .storeMenuId(store_menu_id)
+                //.userOrderId(user_order_id)
+                .userOrder(userOrderEntity)
+                .storeMenu(storeMenuEntity)
                 .build();
     }
 }
