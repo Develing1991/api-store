@@ -13,7 +13,7 @@ import java.math.BigDecimal
 class UserOrderConverter {
 
     fun toEntity(
-        user: User,
+        user: User?,
         storeMenuEntityList: List<StoreMenuEntity>?,
         storeEntity: StoreEntity?,
     ):UserOrderEntity{
