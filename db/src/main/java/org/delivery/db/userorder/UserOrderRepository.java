@@ -1,5 +1,5 @@
 package org.delivery.db.userorder;
-
+/*
 import org.delivery.db.userorder.enums.UserOrderStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -23,5 +23,5 @@ public interface UserOrderRepository extends JpaRepository<UserOrderEntity, Long
     // select * from user_order where user_id = ? and status in (?, ?... ) order by id desc;
     List<UserOrderEntity> findAllByUserIdAndStatusInOrderByIdDesc(Long userId, List<UserOrderStatus> status);
     
-}
+}*/
 
