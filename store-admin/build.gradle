@@ -1,7 +1,13 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     id 'java'
     id 'org.springframework.boot'
     id 'io.spring.dependency-management'
+
+    id 'org.jetbrains.kotlin.jvm'  // kotlin
+    id 'org.jetbrains.kotlin.plugin.spring' // kotlin
+    id 'org.jetbrains.kotlin.plugin.jpa' // kotlin
 }
 
 group = 'org.delivery'
@@ -40,8 +46,20 @@ dependencies {
     // https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-ui
     implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.7.0'
 
+    // kotlin
+    implementation 'com.fasterxml.jackson.module:jackson-module-kotlin' // kotlin
+    implementation 'org.jetbrains.kotlin:kotlin-reflect' // kotlin
+
     implementation project(':db')
     implementation project(':common')
+}
+
+// kotlin
+tasks.withType(KotlinCompile) {
+    kotlinOptions {
+        freeCompilerArgs += '-Xjsr305=strict'
+        jvmTarget = '11'  // 11로 변경
+    }
 }
 
 test {
