@@ -6,7 +6,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 import org.delivery.db.BaseEntity;
-import org.delivery.db.user.enums.StoreMenuStatus;
+import org.delivery.db.storemenu.enums.StoreMenuStatus;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
